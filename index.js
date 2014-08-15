@@ -10,4 +10,4 @@ app.get('/', function(request, response){
 	response.render('index', {name: '10000ch'});
 });
 
-app.listen(app.listen(process.env.PORT || 3000););
+app.listen(process.env.PORT || 3000);
