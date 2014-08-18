@@ -10,7 +10,16 @@
     "type": "git",
     "url": "https://github.com/1000ch/cssr.git"
   },
-  "author": "Hiroki Tani",
+  "author": {
+    "name": "1000ch",
+    "email": "shogo.sensui@gmail.com",
+    "web": "http://github.com/1000ch"
+  },
+  "contributors": [{
+    "name": "hiloki",
+    "email": "contact@inkdesign.jp",
+    "web": "http://github.com/hiloki"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/1000ch/cssr/issues"
