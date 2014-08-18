@@ -1,7 +1,7 @@
 {
   "name": "cssr",
   "version": "0.0.0",
-  "description": "",
+  "description": "Go home and be a family man!",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -10,15 +10,42 @@
     "type": "git",
     "url": "https://github.com/1000ch/cssr.git"
   },
-  "author": "Hiroki Tani",
+  "author": {
+    "name": "1000ch",
+    "email": "shogo.sensui@gmail.com",
+    "web": "http://github.com/1000ch"
+  },
+  "contributors": [
+    {
+      "name": "hiloki",
+      "email": "contact@inkdesign.jp",
+      "web": "http://github.com/hiloki"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/1000ch/cssr/issues"
   },
   "homepage": "https://github.com/1000ch/cssr",
   "dependencies": {
+    "cheerio": "^0.17.0",
     "express": "^4.8.4",
+    "fastclick": "^1.0.3",
     "jade": "^1.5.0",
-    "ucss": "^0.4.6-beta"
+    "jquery": "^2.1.1",
+    "normalize.css": "^3.0.1",
+    "promise": "^5.0.0",
+    "request": "^2.40.0",
+    "ucss": "^0.4.6-beta",
+    "url": "^0.10.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-stylus": "^0.18.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-csscomb": "^3.0.0",
+    "grunt-csso": "^0.6.3"
   }
 }
