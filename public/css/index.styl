@@ -1,2 +1,98 @@
+html
+  min-height: 100vh
+  background: url(/img/ussr.png) no-repeat center
+  -webkit-background-size: cover
+  background-size: cover
+
+
 body
-  background #eee
+
+
+body:after
+  display: block
+  content: ""
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(229, 102, 70, 0.8)
+
+
+a
+  color: #FFF
+
+
+.control
+  position: absolute
+  left: 24px
+  top: 24px
+  z-index: 1
+  width: 50%
+
+
+.appname
+  margin: 0
+
+
+.tagline
+  margin: 0
+
+
+.input
+  -webkit-appearance: none
+  border: 0
+  border-bottom: 1px solid #FFF
+  width: 80%
+  padding: 0.5rem
+  background-color: transparent
+  font-size: 2rem
+  color: #FFF
+
+
+.btn
+  display: block
+  margin-top: 2rem
+  padding: 0.8rem 1.6em
+  border: 1px solid #FFF
+  background-color: transparent
+  font-size: 1.5rem
+  color: #FFF
+
+
+.btn:hover
+  background-color: #fff
+  color: rgba(229, 102, 70, 0.9)
+
+
+::-webkit-input-placeholder
+  color: #eee
+
+:-moz-placeholder
+  color: #eee
+
+
+[role="banner"]
+  color: #FFF
+
+
+[role="contentinfo"]
+  position: absolute
+  left: 24px
+  bottom: 24px
+  z-index: 1
+  color: #FFF
+
+
+.result
+  position: absolute
+  right: 0
+  top: 0
+  bottom: 0
+  left: 50%
+  z-index: 1
+  padding: 24px
+  background-color: #393939
+  box-shadow: inset 4px 0 4px rgba(0,0,0,.3) 
+  color: #FFF
+  font-size: 18px
