@@ -1,67 +1,27 @@
 doctype html
 html
   head
-    title 100000ch
+    title CSSR
     meta(charset='utf-8')
     link(rel='stylesheet', href='/css/lib.min.css')
     link(rel='stylesheet', href='/css/app.min.css')
+    link(rel='import', href='/webcomponents/result-list.html')
+    link(rel='import', href='/webcomponents/result-list-item.html')
   body
 
     .control
       header(role="banner")
         h1.appname CSSR
-        p.tagline
+        p.tagline.
           Go home and be a family man! 
       nav(role="navigation")
         input(type="text", value='http://1000ch.net').input
         button.btn Parse
 
     main.result
-      ul
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
-        li
-          code .selector
+      img#js-loading.is-hidden(src='/img/zangief.gif')
+      result-list#js-result-list
+        result-list-item
 
     footer(role="contentinfo")
       p.

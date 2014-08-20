@@ -62,7 +62,17 @@ module.exports = function (grunt) {
         files: {
           'public/css/app.min.css': 'public/css/app.css'
         }
-      }}
+      }
+    },
+    watch: {
+      stylus: {
+        files: ['public/css/*.styl'],
+        tasks: ['build:css'],
+        options: {
+          livereload: true
+        }
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-csscomb');
@@ -70,7 +80,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('build:css', ['stylus', 'concat:csslib', 'concat:cssapp', 'csscomb', 'csso']);
   grunt.registerTask('build:js', ['concat:jslib', 'concat:jsapp', 'uglify']);
   grunt.registerTask('build', ['build:js', 'build:css']);
