@@ -1,13 +1,16 @@
 $(function () {
   FastClick.attach(document.body);
 
+  var $loading = $('#js-loading');
   var $button = $('button');
   var $input = $('input');
   var $resultList = $('#js-result-list');
   var resultItemTemplate = document.querySelector('#js-result-item-template');
 
   $button.on('click', function () {
-    console.log('button is clicked');
+
+    $loading.removeClass('is-hidden');
+
     $.ajax({
       url: '/api/cssr',
       method: 'get',
@@ -26,9 +29,14 @@ $(function () {
 
       $resultList.empty().append(html);
 
-      console.log(data);
     }).fail(function (jqXHR, status, error) {
+
       console.log(error);
+
+    }).always(function () {
+
+      $loading.addClass('is-hidden');
+
     });
   });
 });
