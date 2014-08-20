@@ -19,15 +19,12 @@ $(function () {
       var errors = data.load_errors;
       var selectors = data.selectors;
 
-      var items = [];
-      var clone = null;
+      var html = '';
       Object.keys(selectors).forEach(function (selector) {
-        clone = document.importNode(resultItemTemplate.content, true);
-        clone.querySelector('code').textContent = selector;
-        items.push(clone);
+        html += '<result-list-item>' + selector + '</result-list-item>';
       });
 
-      $resultList.empty().append(items);
+      $resultList.empty().append(html);
 
       console.log(data);
     }).fail(function (jqXHR, status, error) {
