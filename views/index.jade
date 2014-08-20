@@ -19,7 +19,9 @@ html
         button.btn Parse
 
     main.result
-      ul#js-result-list
+      result-list#js-result-list
+        result-list-item
+      ul
         li
           code .selector
         li
@@ -65,8 +67,7 @@ html
         li
           code .selector
     template#js-result-item-template
-      li
-        code
+      result-list-item
 
     footer(role="contentinfo")
       p.
