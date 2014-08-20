@@ -86,19 +86,55 @@ code
     color: #FFF
     background-color: transparent
 
+.loading
+  position absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  margin: auto
+ 
+.line
+  position relative
+  display: block
+  counter-increment: line;
+  line-height: 1.414
+  &:before
+    float: left
+    display: inline-block 
+    content: counter(line)
+    margin-right: 0.7em 
+    padding: 0 1em 0 0.2em
+    width: 2.5em
+    text-align right
+    color: #CCC
+  &:after
+    display: block
+    content: ""
+    position: absolute
+    top: 0
+    left: 3.5em
+    bottom: 0
+    border-right: 1px solid #666
+
+.comment
+  color: #AAA
+
 .result
-  box-sizing: border-box
+  overflow: auto
+  padding-right: 24px
+  padding-bottom 24px
   min-height: 100vh
-  padding: 24px
   box-shadow: inset 4px 0 4px rgba(0,0,0,.3) 
   background-color: #393939
   color: #FFF
   font-size: 18px
-  
+  font-family: Monaco, Consolas, monospace
+  cursor: text
 @media(min-width: 864px)
   .result
     min-height: 0
-    overflow-x: none;
+    overflow-x: auto;
     overflow-y: auto;
     position: absolute
     right: 0

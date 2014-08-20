@@ -24,7 +24,7 @@ $(function () {
 
       var html = '';
       Object.keys(selectors).forEach(function (selector) {
-        html += '<result-list-item>' + selector + '</result-list-item>';
+        html += '<result-list-item class="line">' + selector + '</result-list-item>';
       });
 
       $resultList.empty().append(html);
