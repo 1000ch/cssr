@@ -15,13 +15,13 @@ html
         p.tagline.
           Go home and be a family man! 
       nav(role="navigation")
-        input(type="text", value='http://1000ch.net').input
+        input(type="text", value='http://1000ch.net/').input
         button.btn Parse
 
     main.result
-      img#js-loading.is-hidden(src='/img/zangief.gif')
+      p.comment.line // Find unused and duplicate selectors
+      img#js-loading.loading.is-hidden(src='/img/zangief.gif')
       result-list#js-result-list
-        result-list-item
 
     footer(role="contentinfo")
       p.
