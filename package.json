@@ -4,7 +4,8 @@
   "description": "Go home and be a family man!",
   "main": "index.js",
   "scripts": {
-    "start": "grunt build && node index.js"
+    "start": "grunt build && node index.js",
+    "postinstall": "grunt build"
   },
   "repository": {
     "type": "git",
