@@ -1,10 +1,7 @@
 node_modules
 .DS_Store
 .idea
-public/css/app.css
-public/css/app.min.css
-public/css/lib.css
-public/css/lib.min.css
+public/css/*.css
 public/js/app.js
 public/js/app.min.js
 public/js/lib.js

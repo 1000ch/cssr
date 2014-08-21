@@ -1,12 +1,7 @@
 doctype html
 html
   head
-    title CSSR
-    meta(charset='utf-8')
-    link(rel='stylesheet', href='/css/lib.min.css')
-    link(rel='stylesheet', href='/css/app.min.css')
-    link(rel='import', href='/webcomponents/result-list.html')
-    link(rel='import', href='/webcomponents/result-list-item.html')
+    include include/meta.jade
   body
 
     .control
@@ -29,5 +24,4 @@ html
         <a href="https://twitter.com/hiloki">hiloki</a>.<br>
         and powered by <a href="https://github.com/operasoftware/ucss">UCSS</a>.
 
-    script(src='/js/lib.min.js')
-    script(src='/js/app.min.js')
+    include include/script.jade
