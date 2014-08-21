@@ -43,6 +43,9 @@ code
   background-color: transparent
   font-size: 1.2rem
   color: #FFF
+  &:focus {
+    outline: none;
+  }
 
 .btn
   outline: none
@@ -108,12 +111,14 @@ code
     width: 2.5em
     text-align right
     color: #CCC
+  &:hover:before
+    background-color: rgba(#FFF,0.1)
   &:after
     display: block
     content: ""
     position: absolute
     top: 0
-    left: 3.5em
+    left: 3.58em
     bottom: 0
     border-right: 1px solid #666
 
