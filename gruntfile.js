@@ -67,10 +67,14 @@ module.exports = function (grunt) {
     watch: {
       stylus: {
         files: ['public/css/*.styl'],
-        tasks: ['build:css'],
+        tasks: ['build:css:app'],
         options: {
           livereload: true
         }
+      },
+      jsapp: {
+        files: ['public/js/index.js'],
+        tasks: ['build:js:app']
       }
     }
   });
@@ -83,7 +87,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build:css', ['stylus', 'concat:csslib', 'concat:cssapp', 'csscomb', 'csso']);
-  grunt.registerTask('build:js', ['concat:jslib', 'concat:jsapp', 'uglify']);
+  grunt.registerTask('build:css:lib', ['concat:csslib', 'csscomb:csslib', 'csso:csslib']);
+  grunt.registerTask('build:css:app', ['stylus', 'concat:cssapp', 'csscomb:cssapp', 'csso:cssapp']);
+  grunt.registerTask('build:css', ['build:css:lib', 'build:css:app']);
+  grunt.registerTask('build:js:lib', ['concat:jslib', 'uglify:jslib']);
+  grunt.registerTask('build:js:app', ['concat:jsapp', 'uglify:jsapp']);
+  grunt.registerTask('build:js', ['build:js:lib', 'build:js:app']);
   grunt.registerTask('build', ['build:js', 'build:css']);
 };
