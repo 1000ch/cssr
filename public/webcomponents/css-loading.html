@@ -1,56 +1,56 @@
 <template id="css-loading-template">
   <style>
-  /* http://tobiasahlin.com/spinkit/ */
-  .spinner {
-    width: 80px;
-    height: 30px;
-    text-align: center;
-    font-size: 10px;
-  }
-
-  .spinner > div {
-    background-color: #FFF;
-    height: 100%;
-    width: 6px;
-    display: inline-block;
-    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-    animation: stretchdelay 1.2s infinite ease-in-out;
-  }
-
-  .spinner .rect2 {
-    -webkit-animation-delay: -1.1s;
-    animation-delay: -1.1s;
-  }
-
-  .spinner .rect3 {
-    -webkit-animation-delay: -1.0s;
-    animation-delay: -1.0s;
-  }
-
-  .spinner .rect4 {
-    -webkit-animation-delay: -0.9s;
-    animation-delay: -0.9s;
-  }
-
-  .spinner .rect5 {
-    -webkit-animation-delay: -0.8s;
-    animation-delay: -0.8s;
-  }
-
-  @-webkit-keyframes stretchdelay {
-    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
-    20% { -webkit-transform: scaleY(1.0) }
-  }
-
-  @keyframes stretchdelay {
-    0%, 40%, 100% { 
-      transform: scaleY(0.4);
-      -webkit-transform: scaleY(0.4);
-    }  20% { 
-      transform: scaleY(1.0);
-      -webkit-transform: scaleY(1.0);
+    /* http://tobiasahlin.com/spinkit/ */
+    .spinner {
+      width: 80px;
+      height: 30px;
+      text-align: center;
+      font-size: 10px;
     }
-  }
+  
+    .spinner > div {
+      background-color: #FFF;
+      height: 100%;
+      width: 6px;
+      display: inline-block;
+      -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+      animation: stretchdelay 1.2s infinite ease-in-out;
+    }
+  
+    .spinner .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+  
+    .spinner .rect3 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+  
+    .spinner .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+  
+    .spinner .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+  
+    @-webkit-keyframes stretchdelay {
+      0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+      20% { -webkit-transform: scaleY(1.0) }
+    }
+  
+    @keyframes stretchdelay {
+      0%, 40%, 100% { 
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+      }  20% { 
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
+      }
+    }
   </style>
   <div class="spinner">
     <div class="rect1"></div>
@@ -61,20 +61,20 @@
   </div>
 </template>
 <script>
-  var resultListItemDocument = document.currentScript.ownerDocument;
-  window.ResultListItem = (function () {
+  window.CSSLoading = (function () {
 
-    var ResultListItemPrototype = Object.create(HTMLLIElement.prototype);
+    var cssLoadingDocument = document.currentScript.ownerDocument;
+    var CSSLoadingPrototype = Object.create(HTMLElement.prototype);
 
-    ResultListItemPrototype.createdCallback = function () {
-      var template = resultListItemDocument.getElementById('css-loading-template');
+    CSSLoadingPrototype.createdCallback = function () {
+      var template = cssLoadingDocument.getElementById('css-loading-template');
       var clone = document.importNode(template.content, true);
       var shadowRoot = this.createShadowRoot();
       shadowRoot.appendChild(clone);
     };
 
     return document.registerElement('css-loading', {
-      prototype: ResultListItemPrototype
+      prototype: CSSLoadingPrototype
     });
 
   })();
