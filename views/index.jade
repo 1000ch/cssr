@@ -8,14 +8,15 @@ html
       header(role="banner")
         h1.appname CSSR
         p.tagline.
-          Go home and be a family man! 
+          Find unused and duplicate selectors
       nav(role="navigation")
         input(type="text", value='http://1000ch.net/').input
         button.btn Parse
 
     main.result
-      p.comment.line // Find unused and duplicate selectors
-      img#js-loading.loading.is-hidden(is='random-zangief')
+      p.comment.line // Unused and duplicate selectors
+      // img#js-loading.loading.is-hidden(is='random-zangief')
+      css-loading#js-loading.loading.loading--css.is-hidden
       result-list#js-result-list
 
     footer(role="contentinfo")
