@@ -29,16 +29,10 @@
   },
   "homepage": "https://github.com/1000ch/cssr",
   "dependencies": {
+    "async": "^0.9.0",
     "cheerio": "^0.17.0",
     "express": "^4.8.4",
     "fastclick": "^1.0.3",
-    "jade": "^1.5.0",
-    "jquery": "^2.1.1",
-    "normalize.css": "^3.0.1",
-    "promise": "^5.0.0",
-    "request": "^2.40.0",
-    "ucss": "^0.4.6-beta",
-    "url": "^0.10.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-concat": "^0.5.0",
@@ -46,6 +40,13 @@
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csscomb": "^3.0.0",
-    "grunt-csso": "^0.6.3"
+    "grunt-csso": "^0.6.3",
+    "jade": "^1.5.0",
+    "jquery": "^2.1.1",
+    "normalize.css": "^3.0.1",
+    "promise": "^5.0.0",
+    "request": "^2.40.0",
+    "ucss": "^0.4.6-beta",
+    "url": "^0.10.1"
   }
 }

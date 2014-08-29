@@ -2,6 +2,7 @@ var ucss = require('ucss');
 var cheerio = require('cheerio');
 var Promise = require('promise');
 var request = require('request');
+var async = require('async');
 var url = require('url');
 
 var express = require('express');
@@ -17,27 +18,25 @@ app.get('/', function(request, response){
 
 app.get('/api/cssr', function (req, res) {
 
-  var promises = [];
+  var html = [];
+  var css = [];
 
-  function cssPathes (htmlPath) {
-    return new Promise(function (resolve, reject) {
+  if (req.query.url) {
 
-      var result = {
-        html: htmlPath,
-        css: []
-      };
-
-      request(htmlPath, function (error, response) {
+    var promise = new Promise(function (resolve, reject) {
+      request(req.query.url, function (error, response) {
         if (!error && response.statusCode === 200) {
           try {
+            html.push(response.body);
             var $  = cheerio.load(response.body);
             var $link = $('link[rel=stylesheet]');
+            var urls = [];
 
             $link.each(function () {
-              result.css.push(url.resolve(htmlPath, $(this).attr('href')));
+              urls.push(url.resolve(req.query.url, $(this).attr('href')));
             });
 
-            resolve(result);
+            resolve(urls);
           } catch (e) {
             reject(e);
           }
@@ -48,30 +47,44 @@ app.get('/api/cssr', function (req, res) {
         }
       });
     });
-  }
 
-  if (req.query.url) {
-    promises.push(cssPathes(req.query.url));
+    promise.then(function onFulfilled(urls) {
 
-    Promise.all(promises).done(function (results) {
-      results.forEach(function (result) {
-
-        var html = {
-          crawl: result.html,
-          include: null,
-          exclude: null
-        };
-        var css = result.css;
-        var context = {
-          whitelist: [],
-          auth: null
-        };
-
-        ucss.analyze(html, css, context, null, function (data) {
-          res.json(data);
+      return new Promise(function(resolve, reject) {
+        async.each(urls, function (url, callback) {
+          request(url, function (error, response) {
+            if (!error && response.statusCode === 200) {
+              css.push(response.body);
+              callback();
+            } else {
+              callback(error);
+            }
+          });
+        }, function (error, results) {
+          if (error) {
+            reject(error);
+          } else {
+            resolve(results);
+          }
         });
       });
-    }, function (error) {
+
+    }).then(function () {
+
+      var pages = {
+        include: html.join('')
+      };
+
+      var context = {
+        whitelist: [],
+        auth: null
+      };
+
+      ucss.analyze(pages, css, context, null, function (data) {
+        res.json(data);
+      });
+
+    }).catch(function (error) {
       console.log(error);
     });
   }
