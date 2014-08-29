@@ -19,6 +19,10 @@ module.exports = function (grunt) {
       cssapp: {
         src: ['public/css/index.css'],
         dest: 'public/css/app.css'
+      },
+      csstheme: {
+        src: ['public/css/theme.css'],
+        dest: 'public/css/theme.css'
       }
     },
     uglify: {
@@ -38,6 +42,11 @@ module.exports = function (grunt) {
         files: {
           'public/css/index.css': 'public/css/index.styl'
         }
+      },
+      csstheme: {
+        files: {
+          'public/css/theme.css': 'public/css/theme.styl'
+        }
       }
     },
     csscomb: {
@@ -50,6 +59,11 @@ module.exports = function (grunt) {
         files: {
           'public/css/app.css': 'public/css/app.css'
         }
+      },
+      csstheme: {
+        files: {
+          'public/css/theme.css': 'public/css/theme.css'
+        }
       }
     },
     csso: {
@@ -61,6 +75,11 @@ module.exports = function (grunt) {
       cssapp: {
         files: {
           'public/css/app.min.css': 'public/css/app.css'
+        }
+      },
+      csstheme: {
+        files: {
+          'public/css/theme.min.css': 'public/css/theme.css'
         }
       }
     },
