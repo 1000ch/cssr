@@ -1,0 +1,21 @@
+{
+  "name": "cssr",
+  "version": "0.0.0",
+  "homepage": "https://github.com/1000ch/cssr",
+  "authors": [
+    "1000ch <shogo.sensui@gmail.com>",
+    "hiloki <service@inkdesign.jp>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/webcomponents",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "x-zangief": "1000ch/x-zangief"
+  }
+}
