@@ -5,7 +5,8 @@ module.exports = function (grunt) {
         src: [
           'bower_components/jquery/dist/jquery.js',
           'bower_components/fastclick/lib/fastclick.js',
-          'bower_components/mustache/mustache.js'
+          'bower_components/mustache/mustache.js',
+          'bower_components/cheet.js/cheet.js'
         ],
         dest: 'public/js/lib.js'
       },
@@ -90,7 +91,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'bower_components/',
-          src: 'x-zangief/*',
+          src: 'x-zangief/**',
           dest: 'public/webcomponents'
         }]
       }

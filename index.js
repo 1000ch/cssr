@@ -10,7 +10,11 @@ var app = express();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
+
+app.use('/css', express.static(__dirname + '/public/css'));
+app.use('/js', express.static(__dirname + '/public/js'));
+app.use('/img', express.static(__dirname + '/public/img'));
+app.use('/webcomponents', express.static(__dirname + '/public/webcomponents'));
 
 app.get('/', function(request, response){
   response.render('index', {});
@@ -63,20 +67,19 @@ app.get('/api/cssr', function (req, res) {
         }, function (error, results) {
           if (error) {
             reject(error);
-          } else {console.log(results);
+          } else {
             resolve(results);
           }
         });
       });
 
-    }).then(function () {console.log(0);
+    }).then(function () {
 
       var pages = {
         include: html.join('')
       };
 
       ucss.analyze(pages, css.join(''), null, null, function (data) {
-        console.log(data);
         res.json(data);
       });
 
