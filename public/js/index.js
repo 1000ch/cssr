@@ -5,7 +5,6 @@ $(function () {
   var $button = $('button');
   var $input = $('input');
   var $resultList = $('#js-result-list');
-  var resultItemTemplate = document.querySelector('#js-result-item-template');
 
   $button.on('click', function () {
 
@@ -24,7 +23,9 @@ $(function () {
 
       var html = '';
       Object.keys(selectors).forEach(function (selector) {
-        html += '<result-list-item class="line">' + selector + '</result-list-item>';
+        if (data.selectors[selector].matches_html === 0) {
+          html += '<result-list-item class="line">' + selector + '</result-list-item>';
+        }
       });
 
       $resultList.empty().append(html);

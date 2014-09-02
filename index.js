@@ -18,12 +18,16 @@ app.get('/', function(request, response){
 
 app.get('/api/cssr', function (req, res) {
 
+  var html = [];
+  var css = [];
+
   if (req.query.url) {
 
     var promise = new Promise(function (resolve, reject) {
       request(req.query.url, function (error, response) {
         if (!error && response.statusCode === 200) {
           try {
+            html.push(response.body);
             var $  = cheerio.load(response.body);
             var $link = $('link[rel=stylesheet]');
             var urls = [];
@@ -46,19 +50,33 @@ app.get('/api/cssr', function (req, res) {
 
     promise.then(function onFulfilled(urls) {
 
-      var html = [req.query.url];
-      var css = urls;
+      return new Promise(function(resolve, reject) {
+        async.each(urls, function (url, callback) {
+          request(url, function (error, response) {
+            if (!error && response.statusCode === 200) {
+              css.push(response.body);
+              callback();
+            } else {
+              callback(error);
+            }
+          });
+        }, function (error, results) {
+          if (error) {
+            reject(error);
+          } else {console.log(results);
+            resolve(results);
+          }
+        });
+      });
+
+    }).then(function () {console.log(0);
 
       var pages = {
-        crawl: html
+        include: html.join('')
       };
 
-      var context = {
-        whitelist: [],
-        auth: null
-      };
-
-      ucss.analyze(pages, css, context, null, function (data) {
+      ucss.analyze(pages, css.join(''), null, null, function (data) {
+        console.log(data);
         res.json(data);
       });
 
