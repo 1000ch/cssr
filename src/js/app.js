@@ -4,17 +4,25 @@ $(function () {
 
   // Cheet
   cheet('↓ r ↑ l y b x a', function () {
-    alert('(´･谷･`)');
+    // remove default theme
+    $('link[rel="stylesheet"]').filter(function () {
+      return this.getAttribute('href') === '/css/theme.min.css';
+    }).remove();
+
+    // add him
+    var $zangief = $('<img>').attr('is', 'x-zangief');
+    $zangief.addClass('js-loading loading is-hidden');
+    $('css-loading').replaceWith($zangief);
   });
   
   // Bindings
-  var $loading = $('#js-loading');
   var $button = $('button');
   var $input = $('input');
   var $resultList = $('#js-result-list');
 
   $button.on('click', function () {
 
+    var $loading = $('.js-loading');
     $loading.removeClass('is-hidden');
 
     $.ajax({

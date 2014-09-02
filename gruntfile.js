@@ -91,7 +91,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'bower_components/',
-          src: 'x-zangief/*',
+          src: 'x-zangief/**',
           dest: 'public/webcomponents'
         }]
       }
