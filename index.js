@@ -63,20 +63,19 @@ app.get('/api/cssr', function (req, res) {
         }, function (error, results) {
           if (error) {
             reject(error);
-          } else {console.log(results);
+          } else {
             resolve(results);
           }
         });
       });
 
-    }).then(function () {console.log(0);
+    }).then(function () {
 
       var pages = {
         include: html.join('')
       };
 
       ucss.analyze(pages, css.join(''), null, null, function (data) {
-        console.log(data);
         res.json(data);
       });
 
