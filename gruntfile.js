@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       },
       jsapp: {
         files: {
-          'public/js/app.min.js': ['public/js/app.js']
+          'public/js/app.min.js': ['src/js/app.js']
         }
       }
     },
