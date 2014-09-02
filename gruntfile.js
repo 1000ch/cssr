@@ -3,8 +3,9 @@ module.exports = function (grunt) {
     concat: {
       jslib: {
         src: [
-          'node_modules/jquery/dist/jquery.js',
-          'node_modules/fastclick/lib/fastclick.js'
+          'bower_components/jquery/dist/jquery.js',
+          'bower_components/fastclick/lib/fastclick.js',
+          'bower_components/mustache/mustache.js'
         ],
         dest: 'public/js/lib.js'
       },
@@ -13,7 +14,7 @@ module.exports = function (grunt) {
         dest: 'public/js/app.js'
       },
       csslib: {
-        src: ['node_modules/normalize.css/normalize.css'],
+        src: ['bower_components/normalize.css/normalize.css'],
         dest: 'public/css/lib.css'
       },
       cssapp: {
