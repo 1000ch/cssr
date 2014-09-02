@@ -110,7 +110,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build:css:lib', ['concat:csslib', 'csscomb:csslib', 'csso:csslib']);
   grunt.registerTask('build:css:app', ['stylus:cssapp', 'csscomb:cssapp', 'csso:cssapp']);
   grunt.registerTask('build:css:theme', ['stylus:csstheme', 'csscomb:csstheme', 'csso:csstheme']);
-  grunt.registerTask('build:css', ['build:css:lib', 'build:css:app']);
+  grunt.registerTask('build:css', ['build:css:lib', 'build:css:app', 'build:css:theme']);
 
   grunt.registerTask('build:js:lib', ['concat:jslib', 'uglify:jslib']);
   grunt.registerTask('build:js:app', ['uglify:jsapp']);
