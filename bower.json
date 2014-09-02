@@ -1,6 +1,6 @@
 {
   "name": "cssr",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/1000ch/cssr",
   "authors": [
     "1000ch <shogo.sensui@gmail.com>",
@@ -11,11 +11,14 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "public/webcomponents",
     "test",
     "tests"
   ],
   "dependencies": {
-    "x-zangief": "1000ch/x-zangief"
+    "x-zangief": "1000ch/x-zangief",
+    "fastclick": "~1.0.3",
+    "jquery": "~2.1.1",
+    "mustache": "~0.8.2",
+    "normalize.css": "~3.0.1"
   }
 }

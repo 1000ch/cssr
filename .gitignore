@@ -1,9 +1,9 @@
 node_modules
 .DS_Store
 .idea
+bower_components
 public/css/*.css
 public/js/app.js
 public/js/app.min.js
 public/js/lib.js
 public/js/lib.min.js
-public/webcomponents/x-zangief
