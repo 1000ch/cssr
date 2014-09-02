@@ -10,7 +10,7 @@ $(function () {
     }).remove();
 
     // add him
-    var $zangief = $('<img>').attr('is', 'x-zangief');
+    var $zangief = $('<x-zangief>');
     $zangief.addClass('js-loading loading is-hidden');
     $('css-loading').replaceWith($zangief);
   });
