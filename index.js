@@ -10,7 +10,11 @@ var app = express();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
-app.use(express.static(__dirname + '/public'));
+
+app.use('/css', express.static(__dirname + '/public/css'));
+app.use('/js', express.static(__dirname + '/public/js'));
+app.use('/img', express.static(__dirname + '/public/img'));
+app.use('/webcomponents', express.static(__dirname + '/public/webcomponents'));
 
 app.get('/', function(request, response){
   response.render('index', {});
