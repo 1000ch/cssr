@@ -1,6 +1,13 @@
 $(function () {
+  // FastClick
   FastClick.attach(document.body);
 
+  // Cheet
+  cheet('↓ r ↑ l y b x a', function () {
+    alert('(´･谷･`)');
+  });
+  
+  // Bindings
   var $loading = $('#js-loading');
   var $button = $('button');
   var $input = $('input');

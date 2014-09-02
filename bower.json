@@ -19,6 +19,7 @@
     "fastclick": "~1.0.3",
     "jquery": "~2.1.1",
     "mustache": "~0.8.2",
-    "normalize.css": "~3.0.1"
+    "normalize.css": "~3.0.1",
+    "cheet.js": "~0.3.2"
   }
 }
