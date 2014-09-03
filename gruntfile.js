@@ -91,22 +91,12 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: 'bower_components/',
-          src: 'x-zangief/**',
-          dest: 'public/webcomponents'
-        }, {
-          expand: true,
-          cwd: 'bower_components/',
-          src: 'polymer/**',
-          dest: 'public/webcomponents'
-        }, {
-          expand: true,
-          cwd: 'bower_components/',
-          src: 'twitter-button/**',
-          dest: 'public/webcomponents'
-        }, {
-          expand: true,
-          cwd: 'bower_components/',
-          src: 'facebook-button/**',
+          src: [
+            'x-zangief/**',
+            'polymer/**',
+            'twitter-button/**',
+            'facebook-button/**'
+          ],
           dest: 'public/webcomponents'
         }]
       }
