@@ -1,4 +1,5 @@
 $(function () {
+
   // FastClick
   FastClick.attach(document.body);
 
@@ -38,8 +39,10 @@ $(function () {
 
       var html = '';
       Object.keys(selectors).forEach(function (selector) {
-        if (data.selectors[selector].matches_html === 0) {
-          html += '<result-list-item class="line">' + selector + '</result-list-item>';
+        if (selectors[selector].matches_html === 0) {
+          html += '<result-list-item unused class="line">' + selector + '</result-list-item>';
+        } else if (selectors[selector].occurences_css > 1) {
+          html += '<result-list-item duplicated class="line">' + selector + '</result-list-item>';
         }
       });
 

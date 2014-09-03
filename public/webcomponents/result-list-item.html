@@ -3,6 +3,15 @@
   div {
     overflow: hidden;
   }
+  :host([unused]) {
+    color: #ccf;
+  }
+  :host([duplicated]) {
+    color: #cfc;
+  }
+  :host([unused][duplicated]) {
+    color: #fcc;
+  }
   </style>
   <div>
     <code>
