@@ -93,6 +93,21 @@ module.exports = function (grunt) {
           cwd: 'bower_components/',
           src: 'x-zangief/**',
           dest: 'public/webcomponents'
+        }, {
+          expand: true,
+          cwd: 'bower_components/',
+          src: 'polymer/**',
+          dest: 'public/webcomponents'
+        }, {
+          expand: true,
+          cwd: 'bower_components/',
+          src: 'twitter-button/**',
+          dest: 'public/webcomponents'
+        }, {
+          expand: true,
+          cwd: 'bower_components/',
+          src: 'facebook-button/**',
+          dest: 'public/webcomponents'
         }]
       }
     }
