@@ -100,6 +100,24 @@ module.exports = function (grunt) {
           dest: 'public/webcomponents'
         }]
       }
+    },
+    vulcanize: {
+      webcomponents: {
+        files: {
+          'public/webcomponents/vulcanized.html': 'public/webcomponents/webcomponents.html'
+        }
+      }
+    },
+    htmlmin: {
+      webcomponents: {
+        options: {
+          minifyCSS: true,
+          minifyJS: true
+        },
+        files: {
+          'public/webcomponents/vulcanized.min.html': 'public/webcomponents/vulcanized.html'
+        }
+      }
     }
   });
 
@@ -109,6 +127,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-vulcanize');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['watch']);
@@ -122,5 +142,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build:js:app', ['uglify:jsapp']);
   grunt.registerTask('build:js', ['build:js:lib', 'build:js:app']);
 
-  grunt.registerTask('build', ['copy:webcomponents', 'build:js', 'build:css']);
+  grunt.registerTask('build:webcomponents', ['copy:webcomponents', 'vulcanize:webcomponents', 'htmlmin:webcomponents']);
+
+  grunt.registerTask('build', ['build:webcomponents', 'build:js', 'build:css']);
 };
