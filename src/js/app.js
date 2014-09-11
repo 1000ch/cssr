@@ -10,8 +10,8 @@ $(function () {
       return this.getAttribute('href') === '/css/theme.min.css';
     }).remove();
 
-    // add him
-    var $zangief = $('<x-zangief>');
+    // replace loading icon with him
+    var $zangief = $(document.createElement('x-zangief'));
     $zangief.addClass('js-loading loading is-hidden');
     $('css-loading').replaceWith($zangief);
   });
@@ -37,16 +37,29 @@ $(function () {
       var errors = data.load_errors;
       var selectors = data.selectors;
 
-      var html = '';
+      var resultItemList = [];
       Object.keys(selectors).forEach(function (selector) {
-        if (selectors[selector].matches_html === 0) {
-          html += '<result-list-item unused class="line">' + selector + '</result-list-item>';
-        } else if (selectors[selector].occurences_css > 1) {
-          html += '<result-list-item duplicated class="line">' + selector + '</result-list-item>';
+
+        var resultItem;
+        var status = selectors[selector];
+        var isUnused = status.matches_html === 0;
+        var isDuplicated = status.occurences_css > 1;
+
+        if (isUnused || isDuplicated) {
+          resultItem = document.createElement('result-list-item');
+          resultItem.textContent = selector;
+          if (isUnused) {
+            resultItem.setAttribute('unused', isUnused);
+          }
+          if (isDuplicated) {
+            resultItem.setAttribute('duplicated', isDuplicated);
+          }
+          resultItem.setAttribute('count', status.occurences_css);
+          resultItemList.push(resultItem);
         }
       });
 
-      $resultList.empty().append(html);
+      $resultList.empty().append(resultItemList);
 
     }).fail(function (jqXHR, status, error) {
 
