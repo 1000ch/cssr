@@ -84,6 +84,10 @@ module.exports = function (grunt) {
       jsapp: {
         files: ['src/js/app.js'],
         tasks: ['build:js:app']
+      },
+      webcomponents: {
+        files: ['src/webcomponents/*.html'],
+        tasks: ['build:webcomponents']
       }
     },
     copy: {
@@ -92,6 +96,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'bower_components/',
           src: [
+            '*.html',
             'x-zangief/**',
             'polymer/**',
             'twitter-button/**',

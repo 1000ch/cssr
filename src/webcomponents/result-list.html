@@ -4,9 +4,9 @@
   </div>
 </template>
 <script>
-  var resultListDocument = document.currentScript.ownerDocument;
   window.ResultList = (function () {
 
+    var resultListDocument = document.currentScript.ownerDocument;
     var ResultListPrototype = Object.create(HTMLUListElement.prototype);
 
     ResultListPrototype.createdCallback = function () {

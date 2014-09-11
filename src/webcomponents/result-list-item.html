@@ -1,0 +1,66 @@
+<template id="result-list-item-template">
+  <style>
+    div {
+      overflow: hidden;
+    }
+    :host {
+      width: 100%;
+      height: 100%;
+    }
+    :host([unused]) {
+      color: indianred;
+    }
+    :host([duplicated]) {
+      color: goldenrod;
+    }
+    :host([unused][duplicated]) {
+      color: indianred ;
+    }
+    code {
+      position: relative;
+    }
+    code:hover::after {
+      position: absolute;
+      display: inline-block;
+      content: attr(count);
+      min-width: 24px;
+      border-radius: 12px;
+      height: 100%;
+      left: 105%;
+      top: 0;
+      color: #ccf;
+      background: #666;
+      text-align: center;
+    }
+  </style>
+  <div>
+    <code>
+      <content></content>
+    </code>
+  </div>
+</template>
+<script>
+  window.ResultListItem = (function () {
+
+    var resultListItemDocument = document.currentScript.ownerDocument;
+    var ResultListItemPrototype = Object.create(HTMLLIElement.prototype);
+
+    ResultListItemPrototype.createdCallback = function () {
+      var template = resultListItemDocument.getElementById('result-list-item-template');
+      var clone = document.importNode(template.content, true);
+      this.shadowRoot = this.createShadowRoot();
+      this.shadowRoot.appendChild(clone);
+    };
+
+    ResultListItemPrototype.attributeChangedCallback = function (attributeName, oldValue, newValue) {
+      if (attributeName === 'count') {
+        this.shadowRoot.querySelector('code').setAttribute('count', newValue);
+      }
+    };
+    
+    return document.registerElement('result-list-item', {
+      prototype: ResultListItemPrototype
+    });
+
+  })();
+</script>
