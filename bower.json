@@ -22,6 +22,7 @@
     "normalize.css": "~3.0.1",
     "cheet.js": "~0.3.2",
     "facebook-button": "~0.1.5",
-    "twitter-button": "~0.1.7"
+    "twitter-button": "~0.1.7",
+    "gplus-elements": "~0.2.1"
   }
 }
