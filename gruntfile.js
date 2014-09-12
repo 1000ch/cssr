@@ -100,8 +100,14 @@ module.exports = function (grunt) {
             'x-zangief/**',
             'polymer/**',
             'twitter-button/**',
-            'facebook-button/**'
+            'facebook-button/**',
+            'gplus-elements/**'
           ],
+          dest: 'public/webcomponents'
+        }, {
+          expand: true,
+          cwd: 'src/webcomponents',
+          src: ['*.html'],
           dest: 'public/webcomponents'
         }]
       }
