@@ -12,9 +12,10 @@ html
       nav(role="navigation")
         input.input(type="text", value='http://1000ch.net/')
         button.btn Parse
-      twitter-button(text='CSSR', type='share', href='http://cssr.herokuapp.com')
-      facebook-button(action='like', href='http://cssr.herokuapp.com')
-      gplus-one(href='http://cssr.herokuapp.com')
+      div(role='share')
+        twitter-button(width='80', text='CSSR', type='share', href='http://cssr.herokuapp.com')
+        facebook-button(width='80', action='like', href='http://cssr.herokuapp.com')
+        gplus-one(width='80', href='http://cssr.herokuapp.com')
 
     main.result
       p.comment.line // <b class="unused">Unused</b> and <b class="duplicate">Duplicate</b> selectors
