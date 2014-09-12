@@ -43,16 +43,16 @@ $(function () {
         var resultItem;
         var status = selectors[selector];
         var isUnused = status.matches_html === 0;
-        var isDuplicated = status.occurences_css > 1;
+        var isDuplicate = status.occurences_css > 1;
 
-        if (isUnused || isDuplicated) {
+        if (isUnused || isDuplicate) {
           resultItem = document.createElement('result-list-item');
           resultItem.textContent = selector;
           if (isUnused) {
             resultItem.setAttribute('unused', isUnused);
           }
-          if (isDuplicated) {
-            resultItem.setAttribute('duplicated', isDuplicated);
+          if (isDuplicate) {
+            resultItem.setAttribute('duplicate', isDuplicate);
           }
           resultItem.setAttribute('count', status.occurences_css);
           resultItemList.push(resultItem);
