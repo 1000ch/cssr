@@ -33,9 +33,11 @@ $(function () {
         url: $input.val()
       }
     }).done(function (data) {
-      
-      var errors = data.load_errors;
-      var selectors = data.selectors;
+
+      var htmlUrls = data.htmlUrls;
+      var cssUrls = data.cssUrls;
+      var errors = data.result.load_errors;
+      var selectors = data.result.selectors;
 
       var resultItemList = [];
       Object.keys(selectors).forEach(function (selector) {
