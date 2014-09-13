@@ -17,8 +17,9 @@ $(function () {
   });
   
   // Bindings
-  var $button = $('button');
-  var $input = $('input');
+  var $navigation = $('nav[role=navigation]');
+  var $button = $('#js-parse');
+  var $input = $('#js-target');
   var $resultList = $('#js-result-list');
 
   $button.on('click', function () {
@@ -34,8 +35,14 @@ $(function () {
       }
     }).done(function (data) {
 
-      var htmlUrls = data.htmlUrls;
       var cssUrls = data.cssUrls;
+      cssUrls.forEach(function (url) {
+        var css = $('<input>');
+        css.addClass('input');
+        css.val(url);
+        $navigation.append(css);
+      });
+
       var errors = data.result.load_errors;
       var selectors = data.result.selectors;
 

@@ -10,8 +10,8 @@ html
         p.tagline.
           Find unused and duplicate selectors
       nav(role="navigation")
-        input.input(type="text", value='http://1000ch.net')
-        button.btn Parse
+        input#js-target.input(type="text", value='http://1000ch.net')
+        button#js-parse.btn Parse
 
     main.result
       p.comment.line // <b class="unused">Unused</b> and <b class="duplicate">Duplicate</b> selectors
