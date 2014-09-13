@@ -19,18 +19,29 @@
     code {
       position: relative;
     }
+    code:hover::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+      left: 100%;
+      top: 0;
+      border: 12px solid transparent;
+      border-right-color: #666;
+    }
     code:hover::after {
       position: absolute;
       display: inline-block;
-      content: attr(count);
-      min-width: 24px;
-      border-radius: 12px;
-      height: 100%;
-      left: 105%;
+      content: attr(count) 'times';
+      left: 100%;
       top: 0;
-      color: #ccf;
+      margin-left: 24px;
+      padding-left: 0.6em;
+      padding-right: 0.6em;
+      line-height: 24px;
+      color: #ccc;
       background: #666;
       text-align: center;
+      font-size: 13px;
     }
   </style>
   <div>

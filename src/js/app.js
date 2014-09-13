@@ -48,6 +48,7 @@ $(function () {
         if (isUnused || isDuplicate) {
           resultItem = document.createElement('result-list-item');
           resultItem.textContent = selector;
+          resultItem.setAttribute('class', 'line');
           if (isUnused) {
             resultItem.setAttribute('unused', isUnused);
           }
