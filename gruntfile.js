@@ -75,7 +75,7 @@ module.exports = function (grunt) {
     },
     watch: {
       stylus: {
-        files: ['src/css/*.styl'],
+        files: ['src/stylus/*.styl'],
         tasks: ['build:css:app'],
         options: {
           livereload: true
