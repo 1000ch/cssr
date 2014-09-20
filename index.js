@@ -22,8 +22,10 @@ app.get('/', function(request, response){
 
 app.get('/api/cssr', function (req, res) {
 
-  var html = [];
-  var css = [];
+  var htmlUrls = [];
+  var cssUrls = [];
+  var htmlStrings = [];
+  var cssStrings = [];
 
   if (req.query.url) {
 
@@ -31,7 +33,8 @@ app.get('/api/cssr', function (req, res) {
       request(req.query.url, function (error, response) {
         if (!error && response.statusCode === 200) {
           try {
-            html.push(response.body);
+            htmlUrls.push(req.query.url);
+            htmlStrings.push(response.body);
             var $  = cheerio.load(response.body);
             var $link = $('link[rel=stylesheet]');
             var urls = [];
@@ -58,7 +61,8 @@ app.get('/api/cssr', function (req, res) {
         async.each(urls, function (url, callback) {
           request(url, function (error, response) {
             if (!error && response.statusCode === 200) {
-              css.push(response.body);
+              cssUrls.push(url);
+              cssStrings.push(response.body);
               callback();
             } else {
               callback(error);
@@ -76,11 +80,15 @@ app.get('/api/cssr', function (req, res) {
     }).then(function () {
 
       var pages = {
-        include: html.join('')
+        include: htmlStrings.join('')
       };
 
-      ucss.analyze(pages, css.join(''), null, null, function (data) {
-        res.json(data);
+      ucss.analyze(pages, cssStrings.join(''), null, null, function (data) {
+        res.json({
+          htmlUrls: htmlUrls,
+          cssUrls: cssUrls,
+          result: data
+        });
       });
 
     }).catch(function (error) {

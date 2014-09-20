@@ -17,8 +17,9 @@ $(function () {
   });
   
   // Bindings
-  var $button = $('button');
-  var $input = $('input');
+  var $navigation = $('nav[role=navigation]');
+  var $button = $('#js-parse');
+  var $input = $('#js-target');
   var $resultList = $('#js-result-list');
 
   $button.on('click', function () {
@@ -33,9 +34,17 @@ $(function () {
         url: $input.val()
       }
     }).done(function (data) {
-      
-      var errors = data.load_errors;
-      var selectors = data.selectors;
+
+      var cssUrls = data.cssUrls;
+      cssUrls.forEach(function (url) {
+        var css = $('<input>');
+        css.addClass('input');
+        css.val(url);
+        $navigation.append(css);
+      });
+
+      var errors = data.result.load_errors;
+      var selectors = data.result.selectors;
 
       var resultItemList = [];
       Object.keys(selectors).forEach(function (selector) {
@@ -48,7 +57,7 @@ $(function () {
         if (isUnused || isDuplicate) {
           resultItem = document.createElement('result-list-item');
           resultItem.textContent = selector;
-          resultItem.setAttribute('class', 'line');
+          resultItem.className = 'line';
           if (isUnused) {
             resultItem.setAttribute('unused', isUnused);
           }
