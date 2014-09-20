@@ -5,7 +5,6 @@ html
 
 a
   // color: #FFF
-  color: #000
   color: #998841
 
 .control 
@@ -45,10 +44,27 @@ a
   // background-color: rgba(229, 102, 70, 0.8)
   background: #FFF
   color: #999999
+  a
+    color: #999999
+
 @media(min-width: 864px)
   [role="contentinfo"]
     // color: #FFF
     background-color: transparent
+
+.link-list
+  padding: 12px 24px
+  > li 
+    border-bottom: 1px dotted #998841
+    list-style: none
+    > a 
+      display: block
+      padding: 6px 0;
+      color: inherit
+      text-decoration: none
+      &:hover
+        color: #998841
+
 
 .appname
   color: #998841;

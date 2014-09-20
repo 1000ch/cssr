@@ -18,6 +18,7 @@ $(function () {
   
   // Bindings
   var $navigation = $('nav[role=navigation]');
+  var $cssList = $('#js-css-list');
   var $button = $('#js-parse');
   var $input = $('#js-target');
   var $resultList = $('#js-result-list');
@@ -37,10 +38,8 @@ $(function () {
 
       var cssUrls = data.cssUrls;
       cssUrls.forEach(function (url) {
-        var css = $('<input>');
-        css.addClass('input');
-        css.val(url);
-        $navigation.append(css);
+        var css = '<li><a href="' + url + '" target="_blank">' + url + '</a></li>';
+        $cssList.append(css);
       });
 
       var errors = data.result.load_errors;
