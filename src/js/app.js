@@ -37,10 +37,16 @@ $(function () {
     }).done(function (data) {
 
       var cssUrls = data.cssUrls;
+
+      var list = [];
       cssUrls.forEach(function (url) {
-        var css = '<li><a href="' + url + '" target="_blank">' + url + '</a></li>';
-        $cssList.append(css);
+        var $li = $('<li>');
+        $li.attr('href', url);
+        $li.attr('target', '_blank');
+        $li.text(url);
+        list.push($li);
       });
+      $cssList.empty().append(list);
 
       var errors = data.result.load_errors;
       var selectors = data.result.selectors;
