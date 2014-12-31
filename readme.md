@@ -12,4 +12,4 @@ Go home and be a family man!
 
 ## License
 
-MIT
+MIT: http://1000ch.mit-license.org
