@@ -1,8 +1,5 @@
 $(function () {
 
-  // FastClick
-  FastClick.attach(document.body);
-
   // Cheet
   cheet('↓ r ↑ l y b x a', function () {
     // remove default theme
