@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.1",
     "normalize.css": "~3.0.1",
     "cheet.js": "~0.3.2",
     "x-zangief": "~2.0.0"

@@ -6,7 +6,6 @@ var csso    = require('gulp-csso');
 var csscomb = require('gulp-csscomb');
 
 var JS_LIB_FILES = [
-  'bower_components/jquery/dist/jquery.js',
   'bower_components/cheet.js/cheet.js'
 ];
 var CSS_LIB_FILES   = ['bower_components/normalize.css/normalize.css'];
