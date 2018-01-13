@@ -1,7 +1,19 @@
+import CSSLoading from '/webcomponents/css-loading.js';
+import ResultList from '/webcomponents/result-list.js';
+import ResultItem from '/webcomponents/result-item.js';
+import XZangief from '/webcomponents/x-zangief.js';
+
+customElements.define('css-loading', CSSLoading);
+customElements.define('result-list', ResultList);
+customElements.define('result-item', ResultItem);
+customElements.define('x-zangief', XZangief);
+
 document.addEventListener('DOMContentLoaded', () => {
   cheet('c s s r', () => {
-    $('link[rel="stylesheet"]').filter(() => this.getAttribute('href') === '/css/theme.min.css').remove();
-    $('css-loading').replaceWith($(document.createElement('x-zangief')).addClass('js-loading loading is-hidden'));
+    $('link[rel="stylesheet"]').filter((i, element) => element.getAttribute('href') === '/css/theme.css').remove();
+    const zangief = document.createElement('x-zangief');
+    zangief.type = XZangief.types[Math.floor(Math.random() * XZangief.types.length)]
+    $('css-loading').replaceWith($(zangief).addClass('js-loading loading is-hidden'));
   });
 
   $('#js-parse').on('click', () => {

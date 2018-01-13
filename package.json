@@ -36,7 +36,6 @@
     "gulp-csscomb": "^3.0.3",
     "gulp-csso": "^1.0.0",
     "jade": "^1.5.0",
-    "ucss": "^0.4.6-beta",
-    "x-zangief": "^2.0.0"
+    "ucss": "^0.4.6-beta"
   }
 }

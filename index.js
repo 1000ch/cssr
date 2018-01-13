@@ -27,13 +27,16 @@ app.get('/api/cssr', (req, res) => {
     got(req.query.url).then(response => {
       htmlUrls.push(req.query.url);
       htmlStrings.push(response.body);
-      const $ = cheerio.load(response.body);
-      const $link = $('link[rel=stylesheet]');
       const urls = [];
 
-      $link.each(() => {
-        urls.push(url.resolve(req.query.url, $(this).attr('href')));
-      });
+      try {
+        const $ = cheerio.load(response.body);
+        $('link[rel=stylesheet]').each((index, $link) => {
+          urls.push(url.resolve(req.query.url, $link.attribs.href));
+        });
+      } catch (error) {
+        console.error(error);
+      }
 
       return urls;
     }).then(urls => {
