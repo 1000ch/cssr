@@ -1,6 +1,5 @@
 var ucss = require('ucss');
 var cheerio = require('cheerio');
-var Promise = require('promise');
 var request = require('request');
 var async = require('async');
 var url = require('url');
