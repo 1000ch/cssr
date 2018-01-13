@@ -8,7 +8,6 @@ var csscomb = require('gulp-csscomb');
 
 var JS_LIB_FILES = [
   'bower_components/jquery/dist/jquery.js',
-  'bower_components/mustache/mustache.js',
   'bower_components/cheet.js/cheet.js'
 ];
 var JS_APP_FILES    = ['src/js/app.js'];

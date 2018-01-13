@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "mustache": "~0.8.2",
     "normalize.css": "~3.0.1",
     "cheet.js": "~0.3.2",
     "facebook-button": "~0.1.5",
