@@ -1,59 +1,34 @@
-$(function () {
-
-  // Cheet
-  cheet('c s s r', function () {
-    // remove default theme
-    $('link[rel="stylesheet"]').filter(function () {
-      return this.getAttribute('href') === '/css/theme.min.css';
-    }).remove();
-
-    // replace loading icon with him
-    var $zangief = $(document.createElement('x-zangief'));
-    $zangief.addClass('js-loading loading is-hidden');
-    $('css-loading').replaceWith($zangief);
+document.addEventListener('DOMContentLoaded', () => {
+  cheet('c s s r', () => {
+    $('link[rel="stylesheet"]').filter(() => this.getAttribute('href') === '/css/theme.min.css').remove();
+    $('css-loading').replaceWith($(document.createElement('x-zangief')).addClass('js-loading loading is-hidden'));
   });
 
-  // Bindings
-  var $navigation = $('nav[role=navigation]');
-  var $cssList = $('#js-css-list');
-  var $button = $('#js-parse');
-  var $input = $('#js-target');
-  var $resultList = $('#js-result-list');
-
-  $button.on('click', function () {
-
-    var $loading = $('.js-loading');
+  $('#js-parse').on('click', () => {
+    const $loading = $('.js-loading');
     $loading.removeClass('is-hidden');
 
-    const url = encodeURIComponent($input.val());
-
+    const url = encodeURIComponent($('#js-target').val());
     fetch(`/api/cssr?url=${url}`).then(response => response.json()).then(data => {
-
-      var cssUrls = data.cssUrls;
-
-      var list = [];
-      cssUrls.forEach(function (url) {
-        var $li = $('<li>');
+      const list = [];
+      data.cssUrls.forEach(url => {
+        const $li = $('<li>');
         $li.attr('href', url);
         $li.attr('target', '_blank');
         $li.text(url);
         list.push($li);
       });
-      $cssList.empty().append(list);
+      $('#js-css-list').empty().append(list);
 
-      var errors = data.result.load_errors;
-      var selectors = data.result.selectors;
-
-      var resultItemList = [];
-      Object.keys(selectors).forEach(function (selector) {
-
-        var resultItem;
-        var status = selectors[selector];
-        var isUnused = status.matches_html === 0;
-        var isDuplicate = status.occurences_css > 1;
+      const selectors = data.result.selectors;
+      const resultItemList = [];
+      Object.keys(selectors).forEach(selector => {
+        const status = selectors[selector];
+        const isUnused = status.matches_html === 0;
+        const isDuplicate = status.occurences_css > 1;
 
         if (isUnused || isDuplicate) {
-          resultItem = document.createElement('result-item');
+          const resultItem = document.createElement('result-item');
           resultItem.textContent = selector;
           resultItem.className = 'line';
           if (isUnused) {
@@ -67,16 +42,11 @@ $(function () {
         }
       });
 
-      $resultList.empty().append(resultItemList);
-
-    }).catch(function (jqXHR, status, error) {
-
+      $('#js-result-list').empty().append(resultItemList);
+    }).catch(error => {
       console.log(error);
-
-    }).finally(function () {
-
+    }).finally(() => {
       $loading.addClass('is-hidden');
-
     });
   });
 });
