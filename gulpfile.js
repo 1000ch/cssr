@@ -1,12 +1,8 @@
 var gulp = require('gulp');
 
 var concat  = require('gulp-concat');
-var stylus  = require('gulp-stylus');
 var csso    = require('gulp-csso');
 var csscomb = require('gulp-csscomb');
-
-var CSS_APP_FILES   = ['src/stylus/app.styl'];
-var CSS_THEME_FILES = ['src/stylus/theme.styl'];
 
 gulp.task('js:app', function () {
   return gulp.src(['src/js/app.js'])
@@ -15,19 +11,10 @@ gulp.task('js:app', function () {
 });
 
 gulp.task('css:app', function () {
-  return gulp.src(CSS_APP_FILES)
-    .pipe(stylus())
-    .pipe(concat('app.min.css'))
-    .pipe(csscomb())
-    .pipe(csso())
-    .pipe(gulp.dest('public/css/'));
-});
-
-gulp.task('css:theme', function () {
-  return gulp.src(CSS_THEME_FILES)
-    .pipe(stylus())
-    .pipe(concat('theme.min.css'))
-    .pipe(csscomb())
+  return gulp.src([
+    'src/css/app.css',
+    'src/css/theme.css'
+  ]).pipe(csscomb())
     .pipe(csso())
     .pipe(gulp.dest('public/css/'));
 });
@@ -57,7 +44,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('css', function () {
-  gulp.start('css:app', 'css:theme');
+  gulp.start('css:app');
 });
 
 gulp.task('build', function () {
