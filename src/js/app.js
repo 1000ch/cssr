@@ -38,13 +38,9 @@ $(function () {
     var $loading = $('.js-loading');
     $loading.removeClass('is-hidden');
 
-    $.ajax({
-      url: '/api/cssr',
-      method: 'get',
-      data: {
-        url: $input.val()
-      }
-    }).done(function (data) {
+    const url = encodeURIComponent($input.val());
+
+    fetch(`/api/cssr?url=${url}`).then(response => response.json()).then(data => {
 
       var cssUrls = data.cssUrls;
 
@@ -86,11 +82,11 @@ $(function () {
 
       $resultList.empty().append(resultItemList);
 
-    }).fail(function (jqXHR, status, error) {
+    }).catch(function (jqXHR, status, error) {
 
       console.log(error);
 
-    }).always(function () {
+    }).finally(function () {
 
       $loading.addClass('is-hidden');
 
