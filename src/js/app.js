@@ -1,19 +1,6 @@
 $(function () {
 
   // Cheet
-  cheet('↓ r ↑ l y b x a', function () {
-    // remove default theme
-    $('link[rel="stylesheet"]').filter(function () {
-      return this.getAttribute('href') === '/css/theme.min.css';
-    }).remove();
-
-    // replace loading icon with him
-    var $zangief = $(document.createElement('x-zangief'));
-    $zangief.addClass('js-loading loading is-hidden');
-    $('css-loading').replaceWith($zangief);
-  });
-
-  // Cheet
   cheet('c s s r', function () {
     // remove default theme
     $('link[rel="stylesheet"]').filter(function () {
