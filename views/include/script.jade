@@ -1,5 +1,15 @@
 script(src='/js/lib.min.js')
 script(src='/js/app.min.js')
+script(type='module').
+  import CSSLoading from '/webcomponents/css-loading.js';
+  import ResultList from '/webcomponents/result-list.js';
+  import ResultItem from '/webcomponents/result-item.js';
+  import XZangief from './webcomponents/x-zangief/x-zangief.js';
+
+  customElements.define('css-loading', CSSLoading);
+  customElements.define('result-list', ResultList);
+  customElements.define('result-item', ResultItem);
+  customElements.define('z-zangief', XZangief);
 script.
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

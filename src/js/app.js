@@ -70,7 +70,7 @@ $(function () {
         var isDuplicate = status.occurences_css > 1;
 
         if (isUnused || isDuplicate) {
-          resultItem = document.createElement('result-list-item');
+          resultItem = document.createElement('result-item');
           resultItem.textContent = selector;
           resultItem.className = 'line';
           if (isUnused) {
