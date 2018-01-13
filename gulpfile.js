@@ -5,7 +5,6 @@ var stylus  = require('gulp-stylus');
 var csso    = require('gulp-csso');
 var csscomb = require('gulp-csscomb');
 
-var CSS_LIB_FILES   = ['bower_components/normalize.css/normalize.css'];
 var CSS_APP_FILES   = ['src/stylus/app.styl'];
 var CSS_THEME_FILES = ['src/stylus/theme.styl'];
 
@@ -13,14 +12,6 @@ gulp.task('js:app', function () {
   return gulp.src(['src/js/app.js'])
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest('public/js/'));
-});
-
-gulp.task('css:lib', function () {
-  return gulp.src(CSS_LIB_FILES)
-    .pipe(concat('lib.min.css'))
-    .pipe(csscomb())
-    .pipe(csso())
-    .pipe(gulp.dest('public/css/'));
 });
 
 gulp.task('css:app', function () {
@@ -66,7 +57,7 @@ gulp.task('js', function () {
 });
 
 gulp.task('css', function () {
-  gulp.start('css:lib', 'css:app', 'css:theme');
+  gulp.start('css:app', 'css:theme');
 });
 
 gulp.task('build', function () {
