@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp build && node index.js",
-    "postinstall": "bower i && gulp build"
+    "postinstall": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "jade": "^1.5.0",
     "promise": "^5.0.0",
     "request": "^2.40.0",
-    "ucss": "^0.4.6-beta"
+    "ucss": "^0.4.6-beta",
+    "x-zangief": "^2.0.0"
   }
 }

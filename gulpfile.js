@@ -34,9 +34,9 @@ gulp.task('css:theme', function () {
 
 gulp.task('webcomponents:lib', () => {
   return gulp.src([
-    'bower_components/x-zangief/*'
+    'node_modules/x-zangief/*'
   ], {
-    base: 'bower_components'
+    base: 'node_modules'
   }).pipe(gulp.dest('public/webcomponents'));
 });
 
