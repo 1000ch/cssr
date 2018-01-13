@@ -1,12 +1,9 @@
 var gulp = require('gulp');
-
-var concat  = require('gulp-concat');
-var csso    = require('gulp-csso');
+var csso = require('gulp-csso');
 var csscomb = require('gulp-csscomb');
 
 gulp.task('js:app', function () {
   return gulp.src(['src/js/app.js'])
-    .pipe(concat('app.min.js'))
     .pipe(gulp.dest('public/js/'));
 });
 
