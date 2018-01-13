@@ -5,18 +5,9 @@ var stylus  = require('gulp-stylus');
 var csso    = require('gulp-csso');
 var csscomb = require('gulp-csscomb');
 
-var JS_LIB_FILES = [
-  'bower_components/cheet.js/cheet.js'
-];
 var CSS_LIB_FILES   = ['bower_components/normalize.css/normalize.css'];
 var CSS_APP_FILES   = ['src/stylus/app.styl'];
 var CSS_THEME_FILES = ['src/stylus/theme.styl'];
-
-gulp.task('js:lib', function () {
-  return gulp.src(JS_LIB_FILES)
-    .pipe(concat('lib.min.js'))
-    .pipe(gulp.dest('public/js/'));
-});
 
 gulp.task('js:app', function () {
   return gulp.src(['src/js/app.js'])
@@ -71,7 +62,7 @@ gulp.task('webcomponents', function () {
 });
 
 gulp.task('js', function () {
-  gulp.start('js:lib', 'js:app');
+  gulp.start('js:app');
 });
 
 gulp.task('css', function () {
